@@ -1,16 +1,12 @@
 :root {
   --primary: #2c3e50;
   --accent-blue: #3498db;
-
   --text-main: #1a1a1a;
   --text-light: #636e72;
-
   --card-bg: #ffffff;
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
-
-/* ================= RESET & BASE ================= */
 
 * {
   margin: 0;
@@ -32,8 +28,6 @@ body {
   color: var(--text-main);
 }
 
-/* ================= LAYOUT ================= */
-
 .container {
   width: 100%;
   max-width: 450px;
@@ -43,8 +37,6 @@ body {
   text-align: center;
   animation: fadeIn 0.8s ease-out;
 }
-
-/* ================= HEADER ================= */
 
 .header-image {
   width: 190px;
@@ -77,8 +69,6 @@ body {
   padding: 10px 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
 }
-
-/* ================= EVENT LIST ================= */
 
 .event-list {
   width: 100%;
@@ -119,8 +109,6 @@ body {
   border-color: var(--accent-blue);
 }
 
-/* ================= EVENT VARIANTS ================= */
-
 .event.freefire-card {
   background: #fff;
   border: 2px solid #fff0e6;
@@ -144,8 +132,6 @@ body {
   background: #ff6b00;
   color: #fff;
 }
-
-/* ================= EVENT CONTENT ================= */
 
 .event-left {
   display: flex;
@@ -186,8 +172,6 @@ body {
   font-weight: 600;
 }
 
-/* ================= ICON ================= */
-
 .icon-box {
   width: 44px;
   height: 44px;
@@ -211,8 +195,6 @@ body {
   box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
 }
 
-/* ================= LABEL ================= */
-
 .update-label {
   font-size: 12px;
   color: var(--text-light);
@@ -235,8 +217,6 @@ body {
   border-radius: 2px;
   opacity: 0.5;
 }
-
-/* ================= BUTTON ================= */
 
 .insta-btn {
   cursor: pointer;
@@ -278,8 +258,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ================= ANIMATIONS ================= */
-
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -297,8 +275,6 @@ body {
     transform: translateY(0);
   }
 }
-
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 380px) {
   .event { padding: 12px 14px; }
