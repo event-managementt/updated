@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TARANG'26 | NavGujarat BCA College</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* --- VARIABLES & RESET --- */
+:root {
+  --primary: #00c6ff;
+  --secondary: #ff00cc;
+  --bg-glass: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.2);
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1c1c1c);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 20px;
+  color: #fff;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.container {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+  letter-spacing: 0.8px;
+}
+
+
+.logo-wrapper {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.logo img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.684);
+  box-shadow: 0 0 40px rgba(0, 198, 255, 0.4);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--secondary), var(--primary));
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(10px);
+  animation: spin 3s linear infinite;
+}
+
+h1 {
+  margin-top: 15px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-top: 8px;
+  margin-bottom: 35px;
+  border-bottom: 3px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+}
+
+.event-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 40px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease-out forwards;
+}
+.event:nth-child(1) { animation-delay: 0.2s; }
+.event:nth-child(2) { animation-delay: 0.3s; }
+.event:nth-child(3) { animation-delay: 0.4s; }
+.event:nth-child(4) { animation-delay: 0.5s; }
+.event:nth-child(5) { animation-delay: 0.6s; }
+
+.event-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.event-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: #fff;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.event span.title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.event span.tag {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.655);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #272121;
+  transition: all 0.3s;
+}
+.event:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.event:hover img {
+  transform: scale(1.1);
+  border-color: var(--primary);
+}
+
+.event:hover .icon-box {
+  box-shadow: 0 0 15px var(--primary);
+  transform: rotate(-45deg);
+  background: linear-gradient(135deg,)
+}
+
+.event:active {
+  transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 11px;
+  font-weight: 100;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+@media(max-width: 380px) {
+  h1 { font-size: 32px; }
+  .logo img { width: 100px; height: 100px; }
+  .event { padding: 10px 14px; }
+  .event span.title { font-size: 15px; }
+}
+</style>
+</head>
+
+<body>
+
+  <div class="container">
+    
+    <div class="logo-wrapper">
+      <div class="logo">
+        <img src="./LOGO-1.png" alt="Tarang Logo">
+      </div>
+    </div>
+
+    <h1>Tarang'26</h1>
+    <p class="subtitle">Presented By ❤️ NavGujarat BCA College</p>
+
+    <div class="event-list">
+
+      <div class="event" onclick="openForm('https://docs.google.com/forms/d/e/1FAIpQLSfQuQrF9LwWVdZV-tkdzf-yRyutYwhio7FuNjXkxqcK97_bsw/viewform?usp=dialog')">
+        <div class="event-left">
+          <img src="./Free Fire.png" alt="FF">
+          <div class="event-info">
+            <span class="title">Free Fire</span>
+            <span class="tag">Esports</span>
+          </div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+
+      <div class="event" onclick="openForm('https://forms.gle/zAc78AJAFVh6yCTb8')">
+        <div class="event-left">
+          <img src="./Hackthon logo.jpeg" alt="Hack">
+          <div class="event-info">
+            <span class="title">Hackathon</span>
+            <span class="tag">Coding</span>
+          </div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+
+      <div class="event" onclick="openForm('https://forms.gle/t9bRvRL7J9eqhe148')">
+        <div class="event-left">
+          <img src="./Khatro ke khiladi.jpeg" alt="KKK">
+          <div class="event-info">
+            <span class="title">Khatro Ke Khiladi</span>
+            <span class="tag">Fun Game</span>
+          </div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+
+      <div class="event" onclick="openForm('https://forms.gle/ZRKyC8Cdt9XzTLmR6')">
+        <div class="event-left">
+          <img src="./The Talent Show.jpeg" alt="Talent">
+          <div class="event-info">
+            <span class="title">The Talent Show</span>
+            <span class="tag">Stage Event</span>
+          </div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+
+      <div class="event" onclick="openForm('https://docs.google.com/forms/d/e/1FAIpQLSf2xbpWAAgtukArFFfKMZg1TcMRe0rS08CgMZBjUI2m7vWwjQ/viewform')">
+        <div class="event-left">
+          <img src="./Code Sprint.jpg" alt="Sprint">
+          <div class="event-info">
+            <span class="title">Code Sprint</span>
+            <span class="tag">Coding</span>
+          </div>
+        </div>
+        <div class="icon-box"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+
+    </div>
+<script>
+function openForm(url){
+  window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>
